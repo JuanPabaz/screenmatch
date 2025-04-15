@@ -60,15 +60,9 @@ public class Pelicula {
         return sumaEvaluaciones;
     }
 
-    public void setSumaEvaluaciones(double sumaEvaluaciones) {
-        this.sumaEvaluaciones = sumaEvaluaciones;
-    }
 
     public int getCantidadEvaluaciones() {
         return cantidadEvaluaciones;
     }
 
-    public void setCantidadEvaluaciones(int cantidadEvaluaciones) {
-        this.cantidadEvaluaciones = cantidadEvaluaciones;
-    }
 }
