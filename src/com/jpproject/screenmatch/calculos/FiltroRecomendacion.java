@@ -2,7 +2,7 @@ package com.jpproject.screenmatch.calculos;
 
 public class FiltroRecomendacion {
 
-    void filtrar(Clasificable clasificable){
+    public void filtrar(Clasificable clasificable){
         if(clasificable.getClasificicacion() >= 4){
             System.out.println("Recomendado");
         }else if(clasificable.getClasificicacion() >= 2){
