@@ -1,4 +1,6 @@
 import com.jpproject.screenmatch.calculos.CalculadoraDeTiempo;
+import com.jpproject.screenmatch.calculos.FiltroRecomendacion;
+import com.jpproject.screenmatch.modelos.Episidio;
 import com.jpproject.screenmatch.modelos.Pelicula;
 import com.jpproject.screenmatch.modelos.Series;
 
@@ -28,6 +30,17 @@ public class Principal {
         calculadoraDeTiempo.incluye(miPelicula);
         calculadoraDeTiempo.incluye(casaDragon);
         System.out.println(calculadoraDeTiempo.getTiempoTotal());
+
+        FiltroRecomendacion filtroRecomendacion = new FiltroRecomendacion();
+        filtroRecomendacion.filtrar(miPelicula);
+
+        Episidio episidio = new Episidio();
+        episidio.setNumero(24);
+        episidio.setTitulo("La boda roja");
+        episidio.setSerie(casaDragon);
+        episidio.setTotalVisualizaciones(50);
+        episidio.getClasificicacion();
+        filtroRecomendacion.filtrar(episidio);
 
     }
 }
