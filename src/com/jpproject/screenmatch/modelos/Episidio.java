@@ -33,6 +33,14 @@ public class Episidio implements Clasificable{
         this.serie = serie;
     }
 
+    public int getTotalVisualizaciones() {
+        return totalVisualizaciones;
+    }
+
+    public void setTotalVisualizaciones(int totalVisualizaciones) {
+        this.totalVisualizaciones = totalVisualizaciones;
+    }
+
     @Override
     public int getClasificicacion() {
         if (totalVisualizaciones > 100) {
