@@ -1,4 +1,6 @@
 package com.jpproject.screenmatch.calculos;
 
-public class Clasificable {
+public interface Clasificable {
+
+    int getClasificicacion();
 }
