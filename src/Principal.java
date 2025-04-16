@@ -1,3 +1,4 @@
+import com.jpproject.screenmatch.calculos.CalculadoraDeTiempo;
 import com.jpproject.screenmatch.modelos.Pelicula;
 import com.jpproject.screenmatch.modelos.Series;
 
@@ -22,6 +23,11 @@ public class Principal {
         casaDragon.setEpisodiosPorTemporada(8);
         casaDragon.mostrarFichaTecnica();
         System.out.println(casaDragon.getDuracionEnMinutos());
+
+        CalculadoraDeTiempo calculadoraDeTiempo = new CalculadoraDeTiempo();
+        calculadoraDeTiempo.incluye(miPelicula);
+        calculadoraDeTiempo.incluye(casaDragon);
+        System.out.println(calculadoraDeTiempo.getTiempoTotal());
 
     }
 }
