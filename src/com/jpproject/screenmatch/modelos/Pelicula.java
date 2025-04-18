@@ -6,6 +6,10 @@ public class Pelicula extends Titulo implements Clasificable {
 
     private String director;
 
+    public Pelicula(String nombre) {
+        this.setTitulo(nombre);
+    }
+
     public String getDirector() {
         return director;
     }
