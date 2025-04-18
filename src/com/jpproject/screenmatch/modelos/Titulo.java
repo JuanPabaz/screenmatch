@@ -9,6 +9,11 @@ public class Titulo {
     private double sumaEvaluaciones;
     private int cantidadEvaluaciones;
 
+    public Titulo(String titulo, int fechaDeLanzamiento) {
+        this.titulo = titulo;
+        this.fechaDeLanzamiento = fechaDeLanzamiento;
+    }
+
     public void mostrarFichaTecnica() {
         System.out.println("Mi pelicula es: " + titulo);
         System.out.println("Su fecha de lanzamiento es: " + fechaDeLanzamiento);
