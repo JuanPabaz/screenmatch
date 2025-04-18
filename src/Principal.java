@@ -8,8 +8,7 @@ import java.util.ArrayList;
 
 public class Principal {
     public static void main(String[] args) {
-        Pelicula miPelicula = new Pelicula("Bastardos sin gloria");
-        miPelicula.setFechaDeLanzamiento(2015);
+        Pelicula miPelicula = new Pelicula("Bastardos sin gloria", 2015);
         miPelicula.setDuracionEnMinutos(180);
         miPelicula.setIncluidoEnPlan(true);
         miPelicula.mostrarFichaTecnica();
@@ -18,9 +17,7 @@ public class Principal {
         System.out.println(miPelicula.getCantidadEvaluaciones());
         System.out.println(miPelicula.calcularMedia());
 
-        Series casaDragon = new Series();
-        casaDragon.setTitulo("La Casa Del Dragon");
-        casaDragon.setFechaDeLanzamiento(2022);
+        Series casaDragon = new Series("La Casa Del Dragon", 2022);
         casaDragon.setTemporadas(2);
         casaDragon.setMinutosPorEpisodio(60);
         casaDragon.setEpisodiosPorTemporada(8);
@@ -43,9 +40,8 @@ public class Principal {
         episidio.getClasificicacion();
         filtroRecomendacion.filtrar(episidio);
 
-        var peliculaNueva = new Pelicula("El señor de los anillos");
+        var peliculaNueva = new Pelicula("El señor de los anillos", 2001);
         peliculaNueva.setDuracionEnMinutos(180);
-        peliculaNueva.setFechaDeLanzamiento(2001);
         peliculaNueva.setIncluidoEnPlan(true);
 
         ArrayList<Pelicula> listaDePeliculas = new ArrayList<>();
