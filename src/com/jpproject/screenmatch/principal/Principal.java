@@ -1,3 +1,5 @@
+package com.jpproject.screenmatch.principal;
+
 import com.jpproject.screenmatch.calculos.CalculadoraDeTiempo;
 import com.jpproject.screenmatch.calculos.FiltroRecomendacion;
 import com.jpproject.screenmatch.modelos.Episidio;
