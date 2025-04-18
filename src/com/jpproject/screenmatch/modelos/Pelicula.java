@@ -6,8 +6,8 @@ public class Pelicula extends Titulo implements Clasificable {
 
     private String director;
 
-    public Pelicula(String nombre) {
-        this.setTitulo(nombre);
+    public Pelicula(String titulo, int fechaDeLanzamiento) {
+        super(titulo, fechaDeLanzamiento);
     }
 
     public String getDirector() {
