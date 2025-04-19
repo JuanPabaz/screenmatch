@@ -17,6 +17,8 @@ public class PrincipalConListas {
         Series casaDragon = new Series("La Casa Del Dragon", 2022);
         casaDragon.evaluarPelicula(9);
 
+
+
         ArrayList<Titulo> listaDeTitulos = new ArrayList<>();
         listaDeTitulos.add(bastardosSinGloria);
         listaDeTitulos.add(avatar);
@@ -24,7 +26,10 @@ public class PrincipalConListas {
         listaDeTitulos.add(casaDragon);
 
         for (Titulo titulo : listaDeTitulos) {
-            System.out.println(titulo);
+            System.out.println(titulo.getTitulo());
+            if (titulo instanceof Pelicula pelicula) {
+                System.out.println(pelicula.getClasificicacion());
+            }
         }
     }
 }
