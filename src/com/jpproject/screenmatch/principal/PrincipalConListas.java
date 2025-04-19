@@ -6,6 +6,7 @@ import com.jpproject.screenmatch.modelos.Titulo;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class PrincipalConListas {
     public static void main(String[] args) {
@@ -42,5 +43,7 @@ public class PrincipalConListas {
         System.out.println("Lista de titulos sin ordenar:" + listaDeTitulos);
         Collections.sort(listaDeTitulos);
         System.out.println("Lista de titulos ordeandos:" + listaDeTitulos);
+
+        listaDeTitulos.sort(Comparator.comparing(Titulo::getFechaDeLanzamiento));
     }
 }
