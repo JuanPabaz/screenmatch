@@ -1,6 +1,6 @@
 package com.jpproject.screenmatch.modelos;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo> {
 
     private String titulo;
     private int fechaDeLanzamiento;
@@ -68,5 +68,10 @@ public class Titulo {
 
     public int getCantidadEvaluaciones() {
         return cantidadEvaluaciones;
+    }
+
+    @Override
+    public int compareTo(Titulo tituloAComparar) {
+        return this.titulo.compareTo(tituloAComparar.getTitulo());
     }
 }
