@@ -45,5 +45,6 @@ public class PrincipalConListas {
         System.out.println("Lista de titulos ordeandos:" + listaDeTitulos);
 
         listaDeTitulos.sort(Comparator.comparing(Titulo::getFechaDeLanzamiento));
+        System.out.println("Lista de titulos ordenada por fecha:" + listaDeTitulos);
     }
 }
