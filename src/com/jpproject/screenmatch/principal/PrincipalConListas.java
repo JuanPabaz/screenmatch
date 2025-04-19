@@ -5,6 +5,7 @@ import com.jpproject.screenmatch.modelos.Series;
 import com.jpproject.screenmatch.modelos.Titulo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class PrincipalConListas {
     public static void main(String[] args) {
@@ -16,8 +17,6 @@ public class PrincipalConListas {
         senorDeLosAnillos.evaluarPelicula(9);
         Series casaDragon = new Series("La Casa Del Dragon", 2022);
         casaDragon.evaluarPelicula(9);
-
-
 
         ArrayList<Titulo> listaDeTitulos = new ArrayList<>();
         listaDeTitulos.add(bastardosSinGloria);
@@ -31,5 +30,17 @@ public class PrincipalConListas {
                 System.out.println(pelicula.getClasificicacion());
             }
         }
+
+        ArrayList<String> listaDeArtistas = new ArrayList<>();
+        listaDeArtistas.add("Penelope Cruz");
+        listaDeArtistas.add("Antonio Banderas");
+        listaDeArtistas.add("Ricardo Darin");
+        System.out.println("Lista de Artistas no ordenada: " + listaDeArtistas);
+        Collections.sort(listaDeArtistas);
+        System.out.println("Lista de Artistas ordenada: " + listaDeArtistas);
+
+        System.out.println("Lista de titulos sin ordenar:" + listaDeTitulos);
+        Collections.sort(listaDeTitulos);
+        System.out.println("Lista de titulos ordeandos:" + listaDeTitulos);
     }
 }
