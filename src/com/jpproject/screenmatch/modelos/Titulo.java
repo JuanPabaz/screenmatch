@@ -19,6 +19,12 @@ public class Titulo implements Comparable<Titulo> {
         this.fechaDeLanzamiento = fechaDeLanzamiento;
     }
 
+    public Titulo(TituloOmdb tituloOmdb) {
+        this.titulo = tituloOmdb.title();
+        this.fechaDeLanzamiento = Integer.parseInt(tituloOmdb.year());
+        this.duracionEnMinutos = Integer.parseInt(tituloOmdb.runtime().substring(0, tituloOmdb.runtime().indexOf(" ")));
+    }
+
     public void mostrarFichaTecnica() {
         System.out.println("Mi pelicula es: " + titulo);
         System.out.println("Su fecha de lanzamiento es: " + fechaDeLanzamiento);
