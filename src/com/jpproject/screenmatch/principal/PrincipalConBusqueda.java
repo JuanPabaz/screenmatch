@@ -1,5 +1,8 @@
 package com.jpproject.screenmatch.principal;
 
+import com.google.gson.Gson;
+import com.jpproject.screenmatch.modelos.Titulo;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -20,7 +23,10 @@ public class PrincipalConBusqueda {
         try {
             HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println(response.body());
+            String json = response.body();
+            Gson gson = new Gson();
+            Titulo titulo = gson.fromJson(json, Titulo.class);
+            System.out.println(titulo.getTitulo());
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
