@@ -1,7 +1,10 @@
 package com.jpproject.screenmatch.principal;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.jpproject.screenmatch.modelos.Titulo;
+import com.jpproject.screenmatch.modelos.TituloOmdb;
 
 import java.io.IOException;
 import java.net.URI;
@@ -24,9 +27,11 @@ public class PrincipalConBusqueda {
             HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
             String json = response.body();
-            Gson gson = new Gson();
-            Titulo titulo = gson.fromJson(json, Titulo.class);
-            System.out.println(titulo.getTitulo());
+            Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
+            TituloOmdb tituloOmdb = gson.fromJson(json, TituloOmdb.class);
+            System.out.println(tituloOmdb.title());
+            Titulo titulo = new Titulo(tituloOmdb);
+            System.out.println(titulo);
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
