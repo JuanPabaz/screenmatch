@@ -1,6 +1,7 @@
 package com.jpproject.screenmatch.modelos;
 
 import com.google.gson.annotations.SerializedName;
+import com.jpproject.screenmatch.excepciones.ConversionRuntimeException;
 
 public class Titulo implements Comparable<Titulo> {
 
@@ -22,6 +23,9 @@ public class Titulo implements Comparable<Titulo> {
     public Titulo(TituloOmdb tituloOmdb) {
         this.titulo = tituloOmdb.title();
         this.fechaDeLanzamiento = Integer.parseInt(tituloOmdb.year());
+        if (tituloOmdb.runtime().contains("N/A")){
+            throw new ConversionRuntimeException("No se puede convertir la duración N/A");
+        }
         this.duracionEnMinutos = Integer.parseInt(tituloOmdb.runtime().substring(0, tituloOmdb.runtime().indexOf(" ")));
     }
 
