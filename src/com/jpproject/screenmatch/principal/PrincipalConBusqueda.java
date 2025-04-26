@@ -18,12 +18,12 @@ public class PrincipalConBusqueda {
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce la pelicula a buscar: ");
         var pelicula = sc.nextLine();
-        String url = "https://www.omdbapi.com/?t="+pelicula +"&apikey=1436a691";
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(url))
-                .build();
+        String url = "https://www.omdbapi.com/?t="+ pelicula +"&apikey=1436a691";
         try {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .build();
             HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
             String json = response.body();
@@ -37,6 +37,11 @@ public class PrincipalConBusqueda {
         } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
             System.out.println("Error: ");
             System.out.println(e.getMessage());
+        }catch (IllegalArgumentException e) {
+            System.out.println("Error de URL: ");
+            System.out.println(e.getMessage());
+        }catch (Exception e) {
+            System.out.println("Error inesperado: " + e.getMessage());
         }finally {
             System.out.println("Finalizó la ejecución del programa");
         }
