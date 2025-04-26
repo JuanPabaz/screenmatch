@@ -7,6 +7,7 @@ import com.jpproject.screenmatch.excepciones.ConversionRuntimeException;
 import com.jpproject.screenmatch.modelos.Titulo;
 import com.jpproject.screenmatch.modelos.TituloOmdb;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -31,9 +32,13 @@ public class PrincipalConBusqueda {
             System.out.println(json);
             Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
             TituloOmdb tituloOmdb = gson.fromJson(json, TituloOmdb.class);
-            System.out.println(tituloOmdb.title());
             Titulo titulo = new Titulo(tituloOmdb);
             System.out.println(titulo);
+
+            FileWriter fw = new FileWriter("peliculas.txt");
+            Gson writeGson = new GsonBuilder().create();
+            fw.write(writeGson.toJson(titulo));
+            fw.close();
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
