@@ -18,7 +18,7 @@ public class PrincipalConBusqueda {
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce la pelicula a buscar: ");
         var pelicula = sc.nextLine();
-        String url = "https://www.omdbapi.com/?t="+ pelicula +"&apikey=1436a691";
+        String url = "https://www.omdbapi.com/?t="+ pelicula.replace(" ", "+") +"&apikey=1436a691";
         try {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
