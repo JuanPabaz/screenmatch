@@ -34,6 +34,11 @@ public class PrincipalConBusqueda {
             System.out.println(titulo);
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
+        } catch (NumberFormatException | StringIndexOutOfBoundsException e) {
+            System.out.println("Error: ");
+            System.out.println(e.getMessage());
+        }finally {
+            System.out.println("Finalizó la ejecución del programa");
         }
     }
 }
