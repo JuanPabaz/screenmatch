@@ -3,6 +3,7 @@ package com.jpproject.screenmatch.principal;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.jpproject.screenmatch.excepciones.ConversionRuntimeException;
 import com.jpproject.screenmatch.modelos.Titulo;
 import com.jpproject.screenmatch.modelos.TituloOmdb;
 
@@ -27,6 +28,7 @@ public class PrincipalConBusqueda {
             HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
             String json = response.body();
+            System.out.println(json);
             Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
             TituloOmdb tituloOmdb = gson.fromJson(json, TituloOmdb.class);
             System.out.println(tituloOmdb.title());
@@ -40,8 +42,8 @@ public class PrincipalConBusqueda {
         }catch (IllegalArgumentException e) {
             System.out.println("Error de URL: ");
             System.out.println(e.getMessage());
-        }catch (Exception e) {
-            System.out.println("Error inesperado: " + e.getMessage());
+        }catch (ConversionRuntimeException e) {
+            System.out.println(e.getMessage());
         }finally {
             System.out.println("Finalizó la ejecución del programa");
         }
