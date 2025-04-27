@@ -5,10 +5,7 @@ import com.jpproject.screenmatch.excepciones.ConversionRuntimeException;
 
 public class Titulo implements Comparable<Titulo> {
 
-    @SerializedName("Title")
     private String titulo;
-
-    @SerializedName("Year")
     private int fechaDeLanzamiento;
     private int duracionEnMinutos;
     private boolean incluidoEnPlan;
@@ -48,16 +45,8 @@ public class Titulo implements Comparable<Titulo> {
         return titulo;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
     public int getFechaDeLanzamiento() {
         return fechaDeLanzamiento;
-    }
-
-    public void setFechaDeLanzamiento(int fechaDeLanzamiento) {
-        this.fechaDeLanzamiento = fechaDeLanzamiento;
     }
 
     public int getDuracionEnMinutos() {
@@ -68,18 +57,9 @@ public class Titulo implements Comparable<Titulo> {
         this.duracionEnMinutos = duracionEnMinutos;
     }
 
-    public boolean isIncluidoEnPlan() {
-        return incluidoEnPlan;
-    }
-
     public void setIncluidoEnPlan(boolean incluidoEnPlan) {
         this.incluidoEnPlan = incluidoEnPlan;
     }
-
-    public double getSumaEvaluaciones() {
-        return sumaEvaluaciones;
-    }
-
 
     public int getCantidadEvaluaciones() {
         return cantidadEvaluaciones;
