@@ -18,11 +18,16 @@ import java.util.List;
 import java.util.Scanner;
 
 public class PrincipalConBusqueda {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
         List<Titulo> titulos = new ArrayList<>();
+        Gson gson = new GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .setPrettyPrinting()
+                .create();
 
         while (true){
+
             System.out.println("Introduce la pelicula a buscar: ");
             var pelicula = sc.nextLine();
             if (pelicula.equalsIgnoreCase("Salir")){
@@ -39,7 +44,6 @@ public class PrincipalConBusqueda {
                         .send(request, HttpResponse.BodyHandlers.ofString());
                 String json = response.body();
                 System.out.println(json);
-                Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
                 TituloOmdb tituloOmdb = gson.fromJson(json, TituloOmdb.class);
                 Titulo titulo = new Titulo(tituloOmdb);
                 System.out.println(titulo);
@@ -59,6 +63,12 @@ public class PrincipalConBusqueda {
                 System.out.println("Finalizó la ejecución del programa");
             }
         }
+
         System.out.println(titulos);
+        FileWriter fw = new FileWriter("peliculas.json");
+        fw.write(gson.toJson(titulos));
+        fw.close();
+        System.out.println("Archivo JSON creado exitosamente.");
+
     }
 }
